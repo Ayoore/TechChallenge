@@ -12,26 +12,26 @@ RUN dir=$(mktemp -d) \
     && mv /tmp/swagger-ui-$SWAGGER_UI_VERSION /tmp/swagger \
     && sed -i 's#"https://petstore\.swagger\.io/v2/swagger\.json"#"./swagger.json"#g' /tmp/swagger/dist/index.html
 
-WORKDIR $GOPATH/src/github.com/servian/TechChallengeApp
+WORKDIR $GOPATH/src/github.com/Ayoore/TechChallenge
 
-COPY go.mod go.sum $GOPATH/src/github.com/servian/TechChallengeApp/
+COPY go.mod go.sum $GOPATH/src/github.com/Ayoore/TechChallenge/
 
 RUN go mod tidy
 
 COPY . .
 
-RUN go build -ldflags="-s -w" -a -o /TechChallengeApp
+RUN go build -ldflags="-s -w" -a -o /TechChallenge
 RUN swagger generate spec -o /swagger.json
 
 FROM alpine:latest
 
-WORKDIR /TechChallengeApp
+WORKDIR /TechChallenge
 
 COPY assets ./assets
 COPY conf.toml ./conf.toml
 
 COPY --from=build /tmp/swagger/dist ./assets/swagger
 COPY --from=build /swagger.json ./assets/swagger/swagger.json
-COPY --from=build /TechChallengeApp TechChallengeApp
+COPY --from=build /TechChallenge TechChallenge
 
-ENTRYPOINT [ "./TechChallengeApp" ]
+ENTRYPOINT [ "./TechChallenge" ]

@@ -24,8 +24,8 @@ import (
   "fmt"
   "os"
 
-  "github.com/servian/TechChallengeApp/config"
-  "github.com/servian/TechChallengeApp/daemon"
+  "github.com/Ayoore/TechChallenge/config"
+  "github.com/Ayoore/TechChallenge/daemon"
   "github.com/spf13/cobra"
 )
 
@@ -34,7 +34,7 @@ var cfg *daemon.Config
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-  Use:   "TechChallengeApp",
+  Use:   "TechChallenge",
   Short: "Application used to test potential candidates at Servian",
   Long: `
  .:ooooool,      .:odddddl;.      .;ooooc. .l,          ;c.    ::.      'coddddoc'         ,looooooc.                  

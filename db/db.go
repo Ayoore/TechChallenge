@@ -28,7 +28,7 @@ import (
 	"github.com/lib/pq"
 
 	_ "github.com/lib/pq"
-	"github.com/servian/TechChallengeApp/model"
+	"github.com/Ayoore/TechChallenge/model"
 )
 
 // Config - configuration for the db package

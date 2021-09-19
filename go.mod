@@ -1,4 +1,4 @@
-module github.com/servian/TechChallengeApp
+module github.com/Ayoore/TechChallenge
 
 go 1.14
 

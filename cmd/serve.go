@@ -24,7 +24,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/servian/TechChallengeApp/daemon"
+	"github.com/Ayoore/TechChallenge/daemon"
 	"github.com/spf13/cobra"
 )
 

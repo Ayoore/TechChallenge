@@ -8,10 +8,10 @@ mkdir -p dist
 
 go mod tidy
 
-go build -ldflags="-s -w" -a -v -o TechChallengeApp .
+go build -ldflags="-s -w" -a -v -o TechChallenge .
 
-cp TechChallengeApp dist/
+cp TechChallenge dist/
 cp -r assets dist/
 cp conf.toml dist/
 
-rm TechChallengeApp
+rm TechChallenge

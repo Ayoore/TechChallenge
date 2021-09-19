@@ -25,7 +25,7 @@ import (
 	"os"
 
 
-	"github.com/servian/TechChallengeApp/db"
+	"github.com/Ayoore/TechChallenge/db"
 	"github.com/spf13/cobra"
 )
 
