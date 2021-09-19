@@ -43,7 +43,7 @@ jobs:
         # Service Principal with Contributor role on the Web App
         service_principal: AZIOSP
         # Service Principal password
-        service_principal_password: !4AIOAdminP@ss 
+        service_principal_password: "!4AIOAdminP@ss" 
         # The tenant where all the web app resources are placed
         tenant: 47d93efa-1117-4577-bdcd-55fd4b3f011a
         # The name of the Azure Container Registry, minus the .azurecr.io
