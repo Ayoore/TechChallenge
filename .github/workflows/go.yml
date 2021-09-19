@@ -35,10 +35,24 @@ jobs:
     if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }} 
     steps:
     - uses: actions/checkout@v2
-    - name: Deploy to Docker registry
-      uses: docker/build-push-action@v1
+    - name: Deploy to Azure Web App for Containers
+      # You may pin to the exact commit or the version.
+      # uses: FrodeHus/azwebapp-container-action@67da4c2bbf5b1382a6fd1adfc54f8b3bfb3ef270
+      uses: FrodeHus/azwebapp-container-action@v1
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: alphaio.azurecr.io/techchallengeapp
-        tag_with_ref: true
+        # Service Principal with Contributor role on the Web App
+        service_principal: ${{secret.AZURE_SP}} 
+        # Service Principal password
+        service_principal_password: ${{secret.AZURE_SP_PASSWORD}} 
+        # The tenant where all the web app resources are placed
+        tenant: ${{secret.AZURE_TENANT_ID}}
+        # The name of the Azure Container Registry, minus the .azurecr.io
+        registry: alphaio
+        # Docker image name
+        image: techchallenge01
+        # Docker image tag
+        tag: v1
+        # Name of the Azure Web App for Containers instance
+        webapp_name: aio-docker-webapp
+        # Name of the resource group with the web app resides
+        resource_group: aio-containers
